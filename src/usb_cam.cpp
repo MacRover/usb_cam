@@ -303,7 +303,7 @@ void UsbCam::frame_timer_callback(const ros::TimerEvent &event)
         // Direct assignment from constant length array: removes blinking on some integrated webcam systems using mmap access mode
         // To be reworked if the plugin architecture planned to be implemented
         img_msg->data.assign(new_image->image, new_image->image + (new_image->step * new_image->height));
-        auto ci = std::make_unique<sensor_msgs::CameraInfo>(camera_info->getCameraInfo());
+        auto ci = std::unique_ptr<sensor_msgs::CameraInfo>(new sensor_msgs::CameraInfo(camera_info->getCameraInfo()));
         ci->header = img_msg->header;
         image_pub->publish((*img_msg), (*ci));
     }
