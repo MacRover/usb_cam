@@ -2,7 +2,7 @@ start_service_name: "start_capture"
 stop_service_name: "stop_capture"
 video_device: /dev/v4l/by-id/usb-046d_HD_Webcam_C525_D1B9CB10-video-index0
 io_method: mmap
-pixel_format: yuyv
+pixel_format: mjpeg
 color_format: yuv422p
 create_suspended: false
 full_ffmpeg_log: false
