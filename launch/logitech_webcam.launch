@@ -9,4 +9,23 @@
     <remap from="image" to="/logitech_webcam/image_raw"/>
     <param name="autosize" value="true" />
   </node>
+  <node name="$(anon dynparam)" pkg="dynamic_reconfigure" type="dynparam" args="set_from_parameters logitech_webcam">
+    <param name="brightness" type="int" value="128" />
+    <param name="contrast" type="int" value="32" />
+    <param name="saturation" type="int" value="32" />
+    <param name="white_balance_temperature_auto" type="bool" value="1" />
+    <param name="white_balance_temperature" type="int" value="5500" />
+    <param name="gain" type="int" value="64" />
+    <param name="power_line_frequency" type="int" value="2" />
+    <param name="sharpness" type="int" value="22" />
+    <param name="backlight_compensation" type="int" value="1" />
+    <param name="exposure_auto" type="int" value="3" />
+    <param name="exposure_auto_priority" type="bool" value="0" />
+    <param name="exposure_absolute" type="int" value="166" />
+    <param name="pan_absolute" type="int" value="0" />
+    <param name="tilt_absolute" type="int" value="0" />
+    <param name="focus_auto" type="bool" value="1" />
+    <param name="focus_absolute" type="int" value="60" />
+    <param name="zoom_absolute" type="int" value="1" />
+  </node>
 </launch>

@@ -330,6 +330,8 @@ void UsbCam::dynamic_reconfigure_callback(IntrinsicCameraParamsConfig &config, u
     set_v4l_parameter("focus_auto", config.focus_auto);
     set_v4l_parameter("focus_absolute", config.focus_absolute);
     set_v4l_parameter("zoom_absolute", config.zoom_absolute);
+    set_v4l_parameter("hue", config.hue);
+    set_v4l_parameter("gamma", config.gamma);
 }
 
 UsbCam::~UsbCam()

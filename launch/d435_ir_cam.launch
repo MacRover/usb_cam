@@ -9,5 +9,8 @@
       <remap from="image" to="/d435_ir_cam/image_raw"/>
       <param name="autosize" value="true" />
     </node>
+    <node name="$(anon dynparam)" pkg="dynamic_reconfigure" type="dynparam" args="set_from_parameters d435_ir_cam">
+      <param name="gain" type="int" value="16" />
+    </node>
   </launch>
   

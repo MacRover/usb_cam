@@ -9,4 +9,19 @@
     <remap from="image" to="/endoscope_cam/image_raw"/>
     <param name="autosize" value="true" />
   </node>
+  <node name="$(anon dynparam)" pkg="dynamic_reconfigure" type="dynparam" args="set_from_parameters endoscope_cam">
+    <param name="brightness" type="int" value="128" />
+    <param name="contrast" type="int" value="43" />
+    <param name="saturation" type="int" value="64" />
+    <param name="white_balance_temperature_auto" type="bool" value="1" />
+    <param name="white_balance_temperature" type="int" value="4000" />
+    <param name="gain" type="int" value="4" />
+    <param name="power_line_frequency" type="int" value="1" />
+    <param name="sharpness" type="int" value="2" />
+    <param name="backlight_compensation" type="int" value="0" />
+    <param name="exposure_auto" type="int" value="3" />
+    <param name="exposure_absolute" type="int" value="166" />
+    <param name="hue" type="int" value="0" />
+    <param name="gamma" type="int" value="136" />
+  </node>
 </launch>
