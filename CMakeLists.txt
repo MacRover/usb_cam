@@ -36,8 +36,13 @@ find_package(catkin REQUIRED COMPONENTS
     std_srvs
     sensor_msgs
     camera_info_manager
+    dynamic_reconfigure
+)
+generate_dynamic_reconfigure_options(
+  config/IntrinsicCameraParams.cfg
 )
 catkin_package(
+    CATKIN_DEPENDS dynamic_reconfigure
     INCLUDE_DIRS include
     LIBRARIES usb_cam
 )
@@ -110,6 +115,7 @@ target_link_libraries(usb_cam
 add_executable(usb_cam_node
     src/usb_cam_node.cpp
 )
+add_dependencies(usb_cam_node ${${PROJECT_NAME}_EXPORTED_TARGETS})
 target_include_directories(usb_cam_node PRIVATE
     ${catkin_INCLUDE_DIRS}
 )

@@ -281,7 +281,7 @@ bool AbstractV4LUSBCam::init_decoder()
      * [ERROR] [##########.##########]: Error while decoding frame.
      */
     if(!full_ffmpeg_log)
-        av_log_set_level(AV_LOG_ERROR);
+        av_log_set_level(AV_LOG_FATAL);
     else
         av_log_set_level(AV_LOG_INFO);
 #if LIBAVCODEC_VERSION_MAJOR < 55

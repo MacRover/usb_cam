@@ -36,11 +36,22 @@
 
 #include <ros/ros.h>
 #include "usb_cam/usb_cam.h"
+#include <dynamic_reconfigure/server.h>
+#include <usb_cam/IntrinsicCameraParamsConfig.h>
 
 int main(int argc, char **argv)
 {
     ros::init(argc, argv, "usb_cam");
-    usb_cam::UsbCam& camera = usb_cam::UsbCam::Instance();
+
+    // dynamic params server for changing camera params on-the-fly
+    dynamic_reconfigure::Server<usb_cam::IntrinsicCameraParamsConfig> dynamic_params_server;
+    dynamic_reconfigure::Server<usb_cam::IntrinsicCameraParamsConfig>::CallbackType f;
+
+    usb_cam::UsbCam &camera = usb_cam::UsbCam::Instance();
+
+    f = boost::bind(&usb_cam::UsbCam::dynamic_reconfigure_callback, &camera, _1, _2);
+    dynamic_params_server.setCallback(f);
+
     ros::spin();
     return 0;
 }

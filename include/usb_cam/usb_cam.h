@@ -38,6 +38,7 @@
 
 #include <ros/forwards.h>
 #include "usb_cam/camera_driver.h"
+#include <usb_cam/IntrinsicCameraParamsConfig.h>
 
 #include <ros/ros.h>
 #include <sensor_msgs/Image.h>
@@ -103,6 +104,8 @@ protected:
 
 public:
     static UsbCam& Instance();
+    /* Dynamic Reconfigure Callback*/
+    void dynamic_reconfigure_callback(IntrinsicCameraParamsConfig &config, uint32_t level);
 };
 
 }

@@ -309,6 +309,29 @@ void UsbCam::frame_timer_callback(const ros::TimerEvent &event)
     }
 }
 
+void UsbCam::dynamic_reconfigure_callback(IntrinsicCameraParamsConfig &config, uint32_t level)
+{
+    ROS_INFO("DYNAMIC_RECONFIGURE_usbcam");
+
+    set_v4l_parameter("brightness", config.brightness);
+    set_v4l_parameter("contrast", config.contrast);
+    set_v4l_parameter("saturation", config.saturation);
+    set_v4l_parameter("white_balance_temperature_auto", config.white_balance_temperature_auto);
+    set_v4l_parameter("white_balance_temperature", config.white_balance_temperature);
+    set_v4l_parameter("gain", config.gain);
+    set_v4l_parameter("power_line_frequency", config.power_line_frequency);
+    set_v4l_parameter("sharpness", config.sharpness);
+    set_v4l_parameter("backlight_compensation", config.backlight_compensation);
+    set_v4l_parameter("exposure_auto", config.exposure_auto);
+    set_v4l_parameter("exposure_auto_priority", config.exposure_auto_priority);
+    set_v4l_parameter("exposure_absolute", config.exposure_absolute);
+    set_v4l_parameter("pan_absolute", config.pan_absolute);
+    set_v4l_parameter("tilt_absolute", config.tilt_absolute);
+    set_v4l_parameter("focus_auto", config.focus_auto);
+    set_v4l_parameter("focus_absolute", config.focus_absolute);
+    set_v4l_parameter("zoom_absolute", config.zoom_absolute);
+}
+
 UsbCam::~UsbCam()
 {
     delete camera_info;
