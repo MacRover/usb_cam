@@ -1,27 +1,29 @@
-# [usb_cam](http://wiki.ros.org/usb_cam)
-[![ROS1 CI](https://github.com/ros-drivers/usb_cam/actions/workflows/main.yml/badge.svg)](https://github.com/ros-drivers/usb_cam/actions/workflows/main.yml)
-[![ROS2 CI](https://github.com/ros-drivers/usb_cam/actions/workflows/build_test.yml/badge.svg)](https://github.com/ros-drivers/usb_cam/actions/workflows/build_test.yml)
+# usb_cam
 
-## Versions up to 0.3.7
-The last ROS 1 version of this package based on "classic" old code of FFMPEG and `libv4l2` is `0.3.7`, currently available via ROS package repository. The `develop` branch of this repository is now based on the **new version of code** with different internal API and configuration process. Please refer to [this page](http://wiki.ros.org/usb_cam/Old%20Versions) on ROS wiki to learn more about how to configure older versions of this package.
+## Available launch files
 
-## A ROS Driver for V4L USB Cameras
+This package provides launch files for the logitech webcam, endoscope, d435 colour camera, and one of the d435 IR cameras.
 
-This package is based off of V4L devices specifically instead of just UVC.
+```
+roslaunch usb_cam logitech_webcam.launch
+```
 
-For full documentation, see [the ROS wiki](http://ros.org/wiki/usb_cam).
+```
+roslaunch usb_cam endoscope_cam.launch
+```
 
-[Doxygen](http://docs.ros.org/indigo/api/usb_cam/html/) files can be found on the ROS wiki.
+```
+roslaunch usb_cam d435_colour_cam.launch
+```
 
-## ROS2 branch
+```
+roslaunch usb_cam d435_ir_cam.launch
+```
 
-If you want to use ROS2 version,
-please check [ros2](https://github.com/ros-drivers/usb_cam/tree/ros2) branch.
+## Reconfigurable Parameters
 
-## License
+This package uses the [dynamic_reconfigure](http://wiki.ros.org/dynamic_reconfigure) ROS package reconfigure the camera parameters during operation. To reconfigure the parameters, simply start a camera node and then run `rosrun rqt_reconfigure rqt_reconfigure`. Then click the name of the node and move the sliders to change the parameter values.
 
-usb\_cam is released with a BSD license. For full terms and conditions, see the [LICENSE](LICENSE) file.
+## Original readme
 
-## Authors
-
-See the [AUTHORS](AUTHORS.md) file for a full list of contributors.
+To view the original readme for this package, see [orig_README.md](orig_README.md).
